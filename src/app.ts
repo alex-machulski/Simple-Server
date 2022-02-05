@@ -23,7 +23,6 @@ export class App {
         @inject(TYPES.ExceptionFilter) private exceptionFilter: IExceptionFilter,
         @inject(TYPES.ConfigService) private configService: IConfigService,
         @inject(TYPES.PrismaService) private prismaService: PrismaService,
-
     ) {
         this.app = express();
         this.port = 8000;
@@ -50,5 +49,9 @@ export class App {
         await this.prismaService.connect();
         this.server = this.app.listen(this.port);
         this.loggerService.log(`Сервер запущен на http://localhost:${this.port}`);
+    }
+
+    public close(): void {
+        this.server.close();
     }
 }
