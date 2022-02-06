@@ -13,7 +13,7 @@
     "generate": "prisma generate",
     "build": "tsc",
     "test": "jest",
-    "test:e2e": "jest --config jest.e2e.config.ts"
+    "test:e2e": "jest --config jest.e2e.config.ts --coverage"
   },
   "author": "Alex Machulsky",
   "license": "ISC",
